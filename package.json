@@ -1,0 +1,27 @@
+{
+  "name": "easy-regexp_library",
+  "version": "1.0.0",
+  "description": "A library to use regular expression in a simple way",
+  "main": "index.js",
+  "module": "index-es.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "rollup -c"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tp953704/js-easyRegExp.git"
+  },
+  "author": "tp953704",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tp953704/js-easyRegExp/issues"
+  },
+  "homepage": "https://github.com/tp953704/js-easyRegExp#readme",
+  "devDependencies": {
+    "@babel/core": "^7.10.4",
+    "@babel/preset-env": "^7.10.4",
+    "rollup": "^2.18.2",
+    "rollup-plugin-babel": "^4.4.0"
+  }
+}

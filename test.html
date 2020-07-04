@@ -6,9 +6,11 @@
     <title>Document</title>
 </head>
 <body>
+    <!-- <script src="./index.js"></script> -->
     <script type="module">
-        import {test} from './index-es.js';
-        console.log(test)
+        import E$ from './src/main.js';
+        
+        console.log(E$('123').then([3,2,3],4).then([1,2,3,4,5],3).test())
     </script>
 </body>
 </html>

@@ -1,4 +1,2 @@
-import a from './es6try/try';
-export function test(){
-    console.log(a)
-}
+import E$ from './components/body.js';
+export default E$;

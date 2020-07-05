@@ -1,9 +1,9 @@
 {
-  "name": "easy-regexp_library",
-  "version": "1.0.2",
+  "name": "easy-regexp_lib",
+  "version": "1.0.0",
   "description": "A library to use regular expression in a simple way",
-  "main": "index.js",
-  "module": "index-es.js",
+  "main": "dist/index.js",
+  "module": "dist/index-es.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "rollup -c"

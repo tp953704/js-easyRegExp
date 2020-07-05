@@ -3,11 +3,11 @@ export default{
     input :'./src/main.js',
     output:[
         {
-            file: 'index-es.js',
+            file: 'dist/index-es.js',
             format: 'es',
             name: 'E$' // 指定檔名稱            
         }, {
-            file: 'index.js',
+            file: 'dist/index.js',
             format: 'umd',
             name: 'E$'// 指定檔名稱
         }

@@ -5,15 +5,11 @@ export default{
         {
             file: 'index-es.js',
             format: 'es',
-            name: 'E$', // 指定檔名稱
-            banner: '// welcome to imooc.com',
-            footer: '// powered by sam',
+            name: 'E$' // 指定檔名稱            
         }, {
             file: 'index.js',
             format: 'umd',
-            name: 'E$', // 指定檔名稱
-            banner: '// welcome to imooc.com',
-            footer: '// powered by sam',
+            name: 'E$'// 指定檔名稱
         }
     ],
     plugins:[

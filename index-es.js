@@ -38,52 +38,6 @@ var fnError = {
   }
 };
 
-var RegExpObj = /*#__PURE__*/function () {
-  function RegExpObj(sInput) {
-    _classCallCheck(this, RegExpObj);
-
-    this.sInput = sInput;
-    this.aCondition = [];
-    this["finally"] = false;
-  }
-
-  _createClass(RegExpObj, [{
-    key: "then",
-    value: function then(aCondition, iNum) {
-      var self = this;
-      fnError.isUnitOfArray(aCondition);
-      fnError.isFinally(self);
-
-      for (var i = 0; i < iNum; i++) {
-        self.aCondition.push(aCondition);
-      }
-
-      return self;
-    }
-  }, {
-    key: "test",
-    value: function test(isLengthEqual) {
-      var self = this;
-      self["finally"] = true;
-      return isCorrect(self.sInput, self.aCondition);
-    }
-  }, {
-    key: "replace",
-    value: function replace(s) {
-      var self = this;
-      self["finally"] = true;
-      return sReplace(self.sInput, self.aCondition, String(s));
-    }
-  }], [{
-    key: "init",
-    value: function init(sInput) {
-      return new RegExpObj(sInput);
-    }
-  }]);
-
-  return RegExpObj;
-}();
-
 function isCorrect(sInput, aCondition) {
   var result = true;
 
@@ -125,6 +79,52 @@ function isArrayHasString(a, s) {
 
   return result;
 }
+
+var RegExpObj = /*#__PURE__*/function () {
+  function RegExpObj(sInput) {
+    _classCallCheck(this, RegExpObj);
+
+    this.sInput = sInput;
+    this.aCondition = [];
+    this["finally"] = false;
+  }
+
+  _createClass(RegExpObj, [{
+    key: "then",
+    value: function then(aCondition, iNum) {
+      var self = this;
+      fnError.isUnitOfArray(aCondition);
+      fnError.isFinally(self);
+
+      for (var i = 0; i < iNum; i++) {
+        self.aCondition.push(aCondition);
+      }
+
+      return self;
+    }
+  }, {
+    key: "test",
+    value: function test() {
+      var self = this;
+      self["finally"] = true;
+      return isCorrect(self.sInput, self.aCondition);
+    }
+  }, {
+    key: "replace",
+    value: function replace(s) {
+      var self = this;
+      self["finally"] = true;
+      return sReplace(self.sInput, self.aCondition, String(s));
+    }
+  }], [{
+    key: "init",
+    value: function init(sInput) {
+      return new RegExpObj(sInput);
+    }
+  }]);
+
+  return RegExpObj;
+}();
 
 var E$ = RegExpObj.init;
 

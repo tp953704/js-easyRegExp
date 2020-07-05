@@ -27,33 +27,38 @@
     return Constructor;
   }
 
-  var isUnitOfArray = function isUnitOfArray(a) {
-    a.forEach(function (element) {
-      var sElemant = String(element);
+  var fnError = {
+    isUnitOfArray: function isUnitOfArray(a) {
+      a.forEach(function (element) {
+        var sElemant = String(element);
 
-      if (sElemant.length > 1) {
-        throw new Error('the element of condition(Array) in Function then() must be unit char');
+        if (sElemant.length > 1) {
+          throw new Error('the element of condition(Array) in Function then() must be unit char');
+        }
+      });
+    },
+    isFinally: function isFinally(regExpObj) {
+      if (regExpObj["finally"]) {
+        throw new Error('the function then() must in front of the finally function');
       }
-    });
+    }
   };
 
-  var errorFun = {
-    isUnitOfArray: isUnitOfArray
-  };
-
-  var regExpObj = /*#__PURE__*/function () {
-    function regExpObj(sInput) {
-      _classCallCheck(this, regExpObj);
+  var RegExpObj = /*#__PURE__*/function () {
+    function RegExpObj(sInput) {
+      _classCallCheck(this, RegExpObj);
 
       this.sInput = sInput;
       this.aCondition = [];
+      this["finally"] = false;
     }
 
-    _createClass(regExpObj, [{
+    _createClass(RegExpObj, [{
       key: "then",
       value: function then(aCondition, iNum) {
-        errorFun.isUnitOfArray(aCondition);
         var self = this;
+        fnError.isUnitOfArray(aCondition);
+        fnError.isFinally(self);
 
         for (var i = 0; i < iNum; i++) {
           self.aCondition.push(aCondition);
@@ -61,14 +66,73 @@
 
         return self;
       }
+    }, {
+      key: "test",
+      value: function test(isLengthEqual) {
+        var self = this;
+        self["finally"] = true;
+        return isCorrect(self.sInput, self.aCondition);
+      }
+    }, {
+      key: "replace",
+      value: function replace(s) {
+        var self = this;
+        self["finally"] = true;
+        return sReplace(self.sInput, self.aCondition, String(s));
+      }
+    }], [{
+      key: "init",
+      value: function init(sInput) {
+        return new RegExpObj(sInput);
+      }
     }]);
 
-    return regExpObj;
+    return RegExpObj;
   }();
 
-  function E$(sInput) {
-    return new regExpObj(sInput);
+  function isCorrect(sInput, aCondition) {
+    var result = true;
+
+    for (var i = 0; i < sInput.length; i++) {
+      var sUnitInput = sInput[i];
+
+      if (!isArrayHasString(aCondition[i], sUnitInput)) {
+        result = false;
+      }
+    }
+
+    return result;
   }
+
+  function sReplace(sInput, aCondition, s) {
+    var result = "";
+
+    for (var i = 0; i < sInput.length; i++) {
+      var sUnitInput = sInput[i];
+
+      if (!isArrayHasString(aCondition[i], sUnitInput)) {
+        result += s;
+      } else {
+        result += sUnitInput;
+      }
+    }
+
+    return result;
+  }
+
+  function isArrayHasString(a, s) {
+    var result = false;
+
+    for (var i = 0; i < a.length; i++) {
+      if (a[i] == s) {
+        result = true;
+      }
+    }
+
+    return result;
+  }
+
+  var E$ = RegExpObj.init;
 
   return E$;
 

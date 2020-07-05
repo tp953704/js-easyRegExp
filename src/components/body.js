@@ -1,10 +1,13 @@
 import errorFun from './error.js';
-
-class regExpObj {
+import {isCorrect,sReplace,isArrayHasString} from './method.js';
+class RegExpObj {
     constructor(sInput) {
         this.sInput = sInput;
         this.aCondition = [];
         this.finally = false;
+    }
+    static init(sInput){
+        return new RegExpObj(sInput);
     }
     then(aCondition,iNum){
         const self = this;
@@ -15,38 +18,19 @@ class regExpObj {
         }
         return self;
     }
-    test(isLengthEqual){
+    test(){
         const self = this;
         self.finally = true;
         
         return isCorrect(self.sInput,self.aCondition);
     }
     replace(s){
-
+        const self = this;
+        self.finally = true;
+        return sReplace(self.sInput,self.aCondition,String(s));
     }
 
 }
-function isCorrect(sInput,aCondition){
-   let result = true;
-   for(let i=0;i<sInput.length;i++){
-        let sUnitInput = sInput[i];    
-        if(!isArrayHasString(aCondition[i],sUnitInput)){
-            result = false;
-        }
-   }
-    return result;
-}
 
-function isArrayHasString(a,s){
-    let result = false;
-    for(let i=0;i<a.length;i++){
-        if(a[i]==s){ 
-            result = true;
-        }
-    }
-    return result;
-}
-function E$(sInput){
-    return new regExpObj(sInput);
-}
-export default E$;
+
+export default RegExpObj.init;

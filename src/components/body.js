@@ -18,15 +18,33 @@ class regExpObj {
     test(isLengthEqual){
         const self = this;
         self.finally = true;
-        M(self.sInput,self.aCondition)
-        return self;
+        
+        return isCorrect(self.sInput,self.aCondition);
+    }
+    replace(s){
+
     }
 
 }
-function M(sInput,aCondition){
-    for(let i=0;i<sInput.length;i++){
-        
+function isCorrect(sInput,aCondition){
+   let result = true;
+   for(let i=0;i<sInput.length;i++){
+        let sUnitInput = sInput[i];    
+        if(!isArrayHasString(aCondition[i],sUnitInput)){
+            result = false;
+        }
+   }
+    return result;
+}
+
+function isArrayHasString(a,s){
+    let result = false;
+    for(let i=0;i<a.length;i++){
+        if(a[i]==s){ 
+            result = true;
+        }
     }
+    return result;
 }
 function E$(sInput){
     return new regExpObj(sInput);

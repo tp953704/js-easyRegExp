@@ -1,6 +1,6 @@
 {
   "name": "easy-regexp_library",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A library to use regular expression in a simple way",
   "main": "index.js",
   "module": "index-es.js",
@@ -12,6 +12,12 @@
     "type": "git",
     "url": "git+https://github.com/tp953704/js-easyRegExp.git"
   },
+  "keywords": [
+    "regular-expression",
+    "reg-exp",
+    "easy-regexp_library",
+    "regexp"
+  ],
   "author": "tp953704",
   "license": "MIT",
   "bugs": {

@@ -1,6 +1,8 @@
 # easy-regexp_lib
-<img src="https://img.shields.io/npm/l/vue.svg?sanitize=true" alt="License">
+<img src="https://img.shields.io/npm/v/easy-regexp_lib" alt="version">    <img src="https://img.shields.io/npm/l/vue.svg?sanitize=true" alt="License">     <img src="https://img.shields.io/npm/dm/easy-regexp_lib" alt="License">
+
 it is a library to use regular expression in javascript easier.
+
 </br>
 
 
@@ -31,5 +33,5 @@ regExpLib("1234").then([1],1).then([2,3,4],3).test();//return true;
 ### 3. replace(string)
 Turn the non-correspond part into string
 ```js
-regExpLib("1234").then([1],1).then([2,3],3).replace(0);return "1230"
+regExpLib("1234").then([1],1).then([2,3],3).replace(0);//return "1230"
 ```

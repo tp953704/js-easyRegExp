@@ -1,9 +1,9 @@
 {
   "name": "easy-regexp_lib",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "A library to use regular expression in a simple way",
-  "main": "dist/index.js",
-  "module": "dist/index-es.js",
+  "main": "dist/index.min.js",
+  "module": "dist/index-es.min.js",
   "scripts": {
     "test": "mocha",
     "build": "rollup -c"

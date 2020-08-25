@@ -1,5 +1,7 @@
 # easy-regexp_lib
 <img src="https://img.shields.io/npm/v/easy-regexp_lib" alt="version">    <img src="https://img.shields.io/npm/l/vue.svg?sanitize=true" alt="License">     <img src="https://img.shields.io/npm/dm/easy-regexp_lib" alt="License">   <img src="https://img.shields.io/github/size/tp953704/js-easyRegExp/dist/index-es.min.js" alt="size">
+   [![Build Status](https://travis-ci.org/tp953704/js-easyRegExp.svg?branch=master)](https://travis-ci.org/tp953704/js-easyRegExp)
+
 
 it is a library to use regular expression in javascript easier.
 
